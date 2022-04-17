@@ -4,15 +4,24 @@ import ferrari.github.FBans;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
+import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.util.StringUtil;
 
+
+import java.net.InetAddress;
+
+import static org.bukkit.craftbukkit.v1_8_R3.event.CraftEventFactory.callEvent;
 import static org.spigotmc.SpigotConfig.config;
 
-public class Bans implements CommandExecutor {
+public class Bans implements CommandExecutor, Listener {
 
 
 
@@ -32,7 +41,6 @@ public class Bans implements CommandExecutor {
                 if (player != null) {
                     player.kickPlayer( FBans.getPlugin(FBans.class).getConfig().getString("messages.nomeservidor").replace("&", "§") +   "\n§cVocê foi banido por " + sender.getName() +   " \n Motivo: " + reason + "§e\n" + FBans.getPlugin(FBans.class).getConfig().getString("messages.banapelacao"));
                     sender.sendMessage(FBans.getPlugin(FBans.class).getConfig().getString("messages.baniu").replace("&", "§").replace("{player}", args[0]).replace("{motivo}", reason));
-
                 } else if (player == null) {
                     sender.sendMessage("§cO jogador não está online!");
 
@@ -44,8 +52,18 @@ public class Bans implements CommandExecutor {
 
 
 
+
         return true;
     }
+
+    @EventHandler
+    public void onLogin(AsyncPlayerPreLoginEvent e) {
+        if (Bukkit.getBanList(BanList.Type.NAME).isBanned(e.getName())) {
+
+            e.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, FBans.getPlugin(FBans.class).getConfig().getString("messages.nomeservidor").replace("&", "§") +   "\n§cVocê foi banido por: "  + Bukkit.getBanList(BanList.Type.NAME).getBanEntry(e.getName()).getReason()+  "§e\n" + FBans.getPlugin(FBans.class).getConfig().getString("messages.banapelacao").replace("&", "§"));
+
+        }
+
+    }
+
 }
-
-

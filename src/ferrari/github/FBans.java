@@ -2,6 +2,7 @@ package ferrari.github;
 
 import ferrari.github.commands.Bans;
 import ferrari.github.commands.Kick;
+import ferrari.github.commands.Punir;
 import ferrari.github.commands.Unban;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,6 +16,8 @@ public class FBans extends JavaPlugin {
         getCommand("banir").setExecutor(new Bans());
         getCommand("expulsar").setExecutor(new Kick());
         getCommand("desbanir").setExecutor(new Unban());
+        getCommand("punir").setExecutor(new Punir());
+        getServer().getPluginManager().registerEvents(new Bans(), this);
         Bukkit.getConsoleSender().sendMessage("§a[FBans] §fPlugin §aFBans §fby §aFerrari §floaded!");
 
 

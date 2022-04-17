@@ -9,3 +9,5 @@ commands:
     description: Expulsa um jogador
   desbanir:
     description: Desbane um jogador
+  punir:
+    description: Puni um jogador
