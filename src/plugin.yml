@@ -1,0 +1,11 @@
+name: F_Bans
+main: ferrari.github.FBans
+description: Bans a player from the server
+version: 1.0
+commands:
+  banir:
+    description: Bane geral
+  expulsar:
+    description: Expulsa um jogador
+  desbanir:
+    description: Desbane um jogador

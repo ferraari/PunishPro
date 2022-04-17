@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="F_Bans:jar">
+    <output-path>$USER_HOME$/Desktop/teste/plugins</output-path>
+    <root id="archive" name="F_Bans.jar">
+      <element id="module-output" name="F_Bans" />
+    </root>
+  </artifact>
+</component>
