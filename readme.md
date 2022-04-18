@@ -23,10 +23,10 @@
 	 
    - [x] TextComponent
    - [x]  Eventos KickMessage Atualizado
+   - [x] Comando /banirtemp
  - Como foi dito anteriormente ainda falta muitas funcionalidades, que eu quero colocar neste projeto, entre essas funcionalidades aqui estão;
 	 - [ ] Comando /mutartemp
 	 - [ ] Comando /mutar
-	 - [ ] Comando /banirtemp
 	 - [ ] Integração com Discord
 	 - [ ] Mais funcionalidades no /punir
 - Caso tenha interesse em ajudar me chame no discord!
