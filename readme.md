@@ -1,4 +1,4 @@
-# 🆕 F_Bans v1.0.0
+# 🆕 F_Bans v1.0-SNAPSHOT
 
 **U**m novo sistema de banimentos integrado com [TextComponent](https://www.spigotmc.org/wiki/the-chat-component-api/), todas mensagens com customização de preferência do usuário, e além de tudo é um projeto de código aberto!
 
