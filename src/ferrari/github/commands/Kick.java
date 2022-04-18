@@ -2,7 +2,6 @@ package ferrari.github.commands;
 
 import ferrari.github.FBans;
 import org.apache.commons.lang3.StringUtils;
-import org.bukkit.BanList;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

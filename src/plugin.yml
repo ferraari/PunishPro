@@ -11,3 +11,5 @@ commands:
     description: Desbane um jogador
   punir:
     description: Puni um jogador
+  tbanir:
+    description: Bane um jogador por um tempo
