@@ -13,3 +13,7 @@ commands:
     description: Puni um jogador
   tbanir:
     description: Bane um jogador por um tempo
+  mutar:
+    description: Mute um jogador
+  desmutar:
+    description: Mute um jogador por um tempo

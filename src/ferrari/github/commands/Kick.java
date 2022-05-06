@@ -14,6 +14,9 @@ public class Kick implements CommandExecutor {
         if (sender.hasPermission("ferrari.kick")) {
 
 
+            if (sender.hasPermission("ferrari.kick")) {
+
+
                 if (sender.hasPermission("ferrari.kick")) {
                     if (args.length == 0) {
                         sender.sendMessage(FBans.getPlugin(FBans.class).getConfig().getString("messages.kickincorreto").replace( "&", "§"));
@@ -27,7 +30,7 @@ public class Kick implements CommandExecutor {
                         player.kickPlayer( FBans.getPlugin(FBans.class).getConfig().getString("messages.nomeservidor").replace("&", "§") +   "\n§cVocê foi kickado por " + sender.getName() +   " \n Motivo: " + reason + "§e\n" + FBans.getPlugin(FBans.class).getConfig().getString("messages.kickapelacao").replace("&", "§"));
                         sender.sendMessage(FBans.getPlugin(FBans.class).getConfig().getString("messages.kickou").replace("&",  "§").replace("{player}", args[0]).replace("{motivo}", reason));
 
-                    } else if ( player == null) {
+                    } else {
                         sender.sendMessage("§cJogador não encontrado");
                     }
 
@@ -37,6 +40,7 @@ public class Kick implements CommandExecutor {
 
             }
 
-        return false;
-    }
+
+        }
+        return false;}
 }

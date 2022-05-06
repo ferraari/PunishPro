@@ -13,6 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 
 
+
 public class Bans implements CommandExecutor, Listener {
 
 
@@ -21,26 +22,26 @@ public class Bans implements CommandExecutor, Listener {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
 
-            if (sender.hasPermission("ferrari.bans")) {
-                if (args.length == 0) {
-                    sender.sendMessage(FBans.getPlugin(FBans.class).getConfig().getString("messages.incorreto").replace( "&", "§"));
-                    return false;
-                }
-                String reason = args.length > 0 ? StringUtils.join(args, "", 1, args.length) : null;
-                Bukkit.getBanList(BanList.Type.NAME).addBan(args[0], reason, null, sender.getName());
+        if (sender.hasPermission("ferrari.bans")) {
+            if (args.length == 0) {
+                sender.sendMessage(FBans.getPlugin(FBans.class).getConfig().getString("messages.incorreto").replace( "&", "§"));
+                return false;
+            }
+            String reason = args.length > 0 ? StringUtils.join(args, "", 1, args.length) : null;
+            Bukkit.getBanList(BanList.Type.NAME).addBan(args[0], reason, null, sender.getName());
 
-                Player player = Bukkit.getPlayer(args[0]);
-                if (player != null) {
-                    player.kickPlayer( FBans.getPlugin(FBans.class).getConfig().getString("messages.nomeservidor").replace("&", "§") +   "\n§cVocê foi banido por " + sender.getName() +   " \n Motivo: " + reason + "§e\n" + FBans.getPlugin(FBans.class).getConfig().getString("messages.banapelacao"));
-                    sender.sendMessage(FBans.getPlugin(FBans.class).getConfig().getString("messages.baniu").replace("&", "§").replace("{player}", args[0]).replace("{motivo}", reason));
-                } else if (player == null) {
-                    sender.sendMessage("§cO jogador não está online!");
-
-                }
+            Player player = Bukkit.getPlayer(args[0]);
+            if (player != null) {
 
 
+            } else {
+                sender.sendMessage("§cO jogador não está online!");
 
             }
+
+
+
+        }
 
 
 

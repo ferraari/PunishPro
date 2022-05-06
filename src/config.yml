@@ -1,13 +1,15 @@
 messages:
   incorreto: '&cModo de uso Incorreto, use: /banir <player> <motivo>'
   kickincorreto: '&cModo de uso Incorreto, use: /expulsar <player> <motivo>'
-  banapelacao: '&eVoce pode apelar sua punicao em: discord.gg'
+  banapelacao: '&eVoce pode apelar sua punicao em: discord.gg/hypixel'
   unbanincorreto: '&cModo de uso Incorreto, use: /desbanir <player>'
   #CASO NAO QUEIRA DEIXAR O KICK APELACAO, APENAS DEIXE O MOTIVO VAZIO
   kickapelacao: '&eVode pode apelar sua punicao em: discord.gg'
   #CASO NAO QUEIRA DEIXAR O KICK APELACAO, APENAS DEIXE O MOTIVO VAZIO
-  nomeservidor: "&b&lRede Hypixel"
+  nomeservidor: "&c&lRede Hypixel"
   baniu: '&cVocê baniu o {player} por {motivo}'
   kickou: '&cVocê kickou o {player} por {motivo}'
   unbaniu: '&cVocê desbaniu o {player}'
   kickbanned: ' &aRedeSky  \n &c Tu nao pode entrar safado, tas banido por:  \n {motivo}'
+  permissao: '&cVoce nao tem permissao para fazer isso'
+  naoencontrado: '&cPlayer nao encontrado'
