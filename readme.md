@@ -32,9 +32,11 @@
 	 - [ ] Reports em GUI
 	 - [ ] Punições em GUI
 - Caso tenha interesse em ajudar me chame no discord!
-[![Discord](https://media.discordapp.net/attachments/929777781489946685/965568659164631090/unknown.png)](https://discord.com/users/794887769612222497)
+
+    [![Discord](https://media.discordapp.net/attachments/929777781489946685/965568659164631090/unknown.png)](https://discord.com/users/794887769612222497)
 
  Colaborador @ViictorXD	
- [![Discord](https://media.discordapp.net/attachments/929777781489946685/965568659164631090/unknown.png)](https://discord.com/users/818236451585654834)
+ 
+   [![Discord](https://media.discordapp.net/attachments/929777781489946685/965568659164631090/unknown.png)](https://discord.com/users/818236451585654834)
 
  
