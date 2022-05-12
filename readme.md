@@ -1,4 +1,4 @@
-# 🆕 F_Bans v1.0-SNAPSHOT
+# 🆕 PunishPro v2.0-SNAPSHOT
 
 **U**m novo sistema de banimentos integrado com [TextComponent](https://www.spigotmc.org/wiki/the-chat-component-api/), todas mensagens com customização de preferência do usuário, e além de tudo é um projeto de código aberto!
 
@@ -33,6 +33,8 @@
 	 - [ ] Punições em GUI
 - Caso tenha interesse em ajudar me chame no discord!
 [![Discord](https://media.discordapp.net/attachments/929777781489946685/965568659164631090/unknown.png)](https://discord.com/users/794887769612222497)
- 
+
+ Colaborador @ViictorXD	
+ [![Discord](https://media.discordapp.net/attachments/929777781489946685/965568659164631090/unknown.png)](https://discord.com/users/818236451585654834)
 
  
