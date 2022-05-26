@@ -16,10 +16,7 @@ import lombok.AllArgsConstructor;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.annotation.Optional;
 import me.saiintbrisson.minecraft.command.command.Context;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.*;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -31,6 +28,7 @@ public class Commands {
 
     @Command(
       name = "banir",
+      aliases = {"ban"},
       permission = "ancientbans.commands.ban"
     )
     public void onBan(
@@ -59,7 +57,8 @@ public class Commands {
         ));
     }
     @Command(
-        name = "mutar",
+      name = "mutar",
+      aliases = {"mute"},
       permission = "ancientbans.commands.ban.reason"
     )
     public void onMute(
@@ -82,7 +81,7 @@ public class Commands {
                 evidence,
                 proof
         );
-        
+
         context.sendMessage(String.format(
                 "§a%s foi mutado permanentemente.", victimName
         ));
@@ -95,6 +94,8 @@ public class Commands {
       Context<CommandSender> context
     ) {
         Player player = (Player) context.getSender();
+
+
         TextComponent div = new TextComponent("§fDivulgação Impropria");
         TextComponent hack = new TextComponent("§fUso de Cliente Alternativo");
         TextComponent bug = new TextComponent("§fAbuso de Bugs");
@@ -111,7 +112,7 @@ public class Commands {
 
         hack.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/banir usuario Divulgação" ));
         bug.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/banir usuario Hack" ));
-        // TODO Mute Events
+        // TODO Mute ClickEvents
 
         context.sendMessage("§eTodos tipos de punições habilitadas; ");
 

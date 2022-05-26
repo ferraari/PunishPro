@@ -37,8 +37,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.concurrent.ConcurrentHashMap;
-
 public class PunishPlugin extends JavaPlugin {
 
 
@@ -108,7 +106,6 @@ public class PunishPlugin extends JavaPlugin {
         viewFrame = new ViewFrame(this);
 
         viewFrame.register(
-
 
         );
     }
