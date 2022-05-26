@@ -94,8 +94,6 @@ public class Commands {
       Context<CommandSender> context
     ) {
         Player player = (Player) context.getSender();
-
-
         TextComponent div = new TextComponent("§fDivulgação Impropria");
         TextComponent hack = new TextComponent("§fUso de Cliente Alternativo");
         TextComponent bug = new TextComponent("§fAbuso de Bugs");
@@ -114,8 +112,7 @@ public class Commands {
         bug.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/banir usuario Hack" ));
         // TODO Mute ClickEvents
 
-        context.sendMessage("§eTodos tipos de punições habilitadas; ");
-
+        context.sendMessage("Tipos de punições disponíveis:");
         player.spigot().sendMessage(div);
         player.spigot().sendMessage(hack);
         player.spigot().sendMessage(bug);
