@@ -1,0 +1,54 @@
+plugins {
+    id 'java-library'
+
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
+
+    id 'net.minecrell.plugin-yml.bukkit' version '0.3.0'
+}
+
+group 'com.ancient.plugins'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    // command & inventory framework
+    maven { url = 'https://jitpack.io' }
+
+    // spigot
+    maven { url = 'https://maven.elmakers.com/repository/' }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+
+    implementation 'org.jetbrains:annotations:23.0.0'
+
+    implementation 'com.github.SaiintBrisson.command-framework:bukkit:1.2.0'
+    implementation 'com.github.SaiintBrisson.command-framework:shared:1.2.0'
+
+    compileOnly 'com.github.DevNatan:inventory-framework:2.5'
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+bukkit {
+    name = 'AncientPunish'
+    main = 'com.ancient.punish.PunishPlugin'
+    version = "${project.version}"
+    apiVersion = '1.13'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+allprojects {
+    libsDirName = 'C:/Users/Murilo Ferrari/Desktop/Projetos/localhost/plugins'
+}
+
+shadowJar {
+    archiveName "${project.name}-${project.version}.jar"
+}
