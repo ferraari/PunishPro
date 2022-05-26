@@ -3,6 +3,7 @@ package com.ancient.punish.listener;
 
 import com.ancient.punish.model.Mute;
 import com.ancient.punish.model.Punish;
+import com.ancient.punish.model.TemporaryMute;
 import com.ancient.punish.registry.PunishRegistry;
 import lombok.AllArgsConstructor;
 import org.bukkit.event.EventHandler;
@@ -22,9 +23,14 @@ public class MutedListener implements Listener {
         if (punish == null) {
             return;
         }
+
         if (punish instanceof Mute) {
-            e.getPlayer().sendMessage("§cVocê está mutado!");
             e.setCancelled(true);
+            e.getPlayer().sendMessage("§cVocê foi mutado por " + punish.getEvidence().getEvidence() + "§8.\n");
+        }
+        if (punish instanceof TemporaryMute) {
+            e.setCancelled(true);
+            e.getPlayer().sendMessage("§cVocê foi temporariamente mutado por " + punish.getEvidence().getEvidence() + "§8.\n");
         }
     }
 }

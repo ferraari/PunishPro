@@ -49,7 +49,7 @@ public class PunishPlugin extends JavaPlugin {
     private PunishService punishService;
 
     private BukkitFrame commandFrame;
-    private ViewFrame viewFrame;
+
 
     @Override
     public void onLoad() {
@@ -73,7 +73,7 @@ public class PunishPlugin extends JavaPlugin {
 
         commands();
         listeners();
-        views();
+
     }
 
     @Override
@@ -89,7 +89,6 @@ public class PunishPlugin extends JavaPlugin {
 
         commandFrame.registerCommands(
           new Commands(
-            reasonRegistry,
             punishService
           )
         );
@@ -102,11 +101,5 @@ public class PunishPlugin extends JavaPlugin {
         pluginManager.registerEvents(new MutedListener(punishRegistry), this);
     }
 
-    private void views() {
-        viewFrame = new ViewFrame(this);
 
-        viewFrame.register(
-
-        );
-    }
 }

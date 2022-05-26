@@ -25,11 +25,14 @@ package com.ancient.punish.service;
 import com.ancient.punish.model.*;
 import com.ancient.punish.registry.PunishRegistry;
 import lombok.AllArgsConstructor;
+import org.bukkit.BanList;
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import java.sql.Time;
 import java.time.Instant;
+import java.util.Date;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -41,32 +44,33 @@ public class PunishService {
 
     public void punish(String operator, String victim, String reason, String proof) {
         final Punish punish = new Punish(
-          UUID.randomUUID(),
-          operator,
-          victim,
-          Evidence.builder()
-            .evidence(reason)
-            .proof(proof)
-            .build(),
-          Type.BAN,
-          Status.ALREADY_BANNED,
-          Instant.now()
+                UUID.randomUUID(),
+                operator,
+                victim,
+                Evidence.builder()
+                        .evidence(reason)
+                        .proof(proof)
+                        .build(),
+                Type.BAN,
+                Status.ALREADY_BANNED,
+                Instant.now()
         );
 
         final Player victimPlayer = Bukkit.getPlayer(victim);
 
         if (victimPlayer != null) {
             victimPlayer.kickPlayer(
-              "§cVocê foi banido por " + reason + "§8.\n"
+                    "§cVocê foi banido por " + reason + "§8.\n"
             );
         }
 
         punishRegistry.getPunishes().add(
-          punish
+                punish
         );
 
 
     }
+
     public void punishMute(String operator, String victim, String reason, String proof) {
         final Mute punish = new Mute(
                 UUID.randomUUID(),
@@ -81,7 +85,8 @@ public class PunishService {
                 Instant.now()
         );
 
-        final Player victimPlayer = Bukkit.getPlayer(victim);;
+        final Player victimPlayer = Bukkit.getPlayer(victim);
+        ;
 
         if (victimPlayer != null) {
             ConsoleCommandSender consoleSender = Bukkit.getConsoleSender();
@@ -95,17 +100,8 @@ public class PunishService {
 
 
     }
-    public void removeMute(String operator, String victim) {
-        final Mute punish = new Mute(
-                UUID.randomUUID(),
-                operator,
-                victim,
-                Evidence.builder()
-                        .build(),
-                Type.MUTE,
-                Status.ALREADY_BANNED,
-                Instant.now()
-        );
+    public void unMute( String operator, String victim) {
+
 
         final Player victimPlayer = Bukkit.getPlayer(victim);
         ;
@@ -116,9 +112,29 @@ public class PunishService {
 
         }
 
-        punishRegistry.getPunishes().add(
+
+        final Punish punish = punishRegistry.getActivatedPunish(victim);
+
+        punishRegistry.getPunishes().remove(
                 punish
         );
-        // TODO: Input to database
+    }
+    public void unBan( String operator, String victim) {
+
+        final Player victimPlayer = Bukkit.getPlayer(victim);
+        final Player operatorPlayer = Bukkit.getPlayer(operator);
+
+        if (victimPlayer != null) {
+            ConsoleCommandSender consoleSender = Bukkit.getConsoleSender();
+            consoleSender.sendMessage("§c" + victim + " foi desbanido por " + operator);
+            operatorPlayer.sendMessage("§cVocê desbanhou " + victim);
+
+        }
+
+        if (Bukkit.getBanList(BanList.Type.NAME).isBanned(victim)) {
+            Bukkit.getBanList(BanList.Type.NAME).pardon(victim);
+        }
+
+
     }
 }

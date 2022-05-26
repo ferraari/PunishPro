@@ -24,6 +24,8 @@ package com.ancient.punish.listener;
 import com.ancient.punish.model.*;
 import com.ancient.punish.registry.PunishRegistry;
 import lombok.AllArgsConstructor;
+import org.bukkit.BanList;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -37,10 +39,10 @@ public class LoginListener implements Listener {
     private PunishRegistry punishRegistry;
 
     @EventHandler(
-      priority = EventPriority.LOWEST
+            priority = EventPriority.LOWEST
     )
     void onLogin(
-      AsyncPlayerPreLoginEvent event
+            AsyncPlayerPreLoginEvent event
     ) {
         final Punish punish = punishRegistry.getActivatedPunish(event.getName());
 
@@ -68,7 +70,12 @@ public class LoginListener implements Listener {
             return;
         }
 
-        event.setLoginResult(AsyncPlayerPreLoginEvent.Result.KICK_BANNED);
-        event.setKickMessage("uma mensagem mirabolante aqui dizendo que você foi banido permanentemente ^.^");
+        event.disallow(
+                AsyncPlayerPreLoginEvent.Result.KICK_BANNED,
+                "§cVocê foi banido por " + punish.getEvidence().getEvidence() + "§8.\n"
+        );
     }
+
+
 }
+
