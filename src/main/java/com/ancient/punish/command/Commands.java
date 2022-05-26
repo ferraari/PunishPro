@@ -82,7 +82,7 @@ public class Commands {
                 evidence,
                 proof
         );
-
+        
         context.sendMessage(String.format(
                 "§a%s foi mutado permanentemente.", victimName
         ));
@@ -121,6 +121,5 @@ public class Commands {
         player.spigot().sendMessage(mute);
         player.spigot().sendMessage(flood);
         player.spigot().sendMessage(spam);
-        
     }
 }
