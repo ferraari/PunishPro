@@ -16,8 +16,12 @@ import lombok.AllArgsConstructor;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.annotation.Optional;
 import me.saiintbrisson.minecraft.command.command.Context;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 @AllArgsConstructor
 public class Commands {
@@ -26,7 +30,7 @@ public class Commands {
     private PunishService punishService;
 
     @Command(
-      name = "ban",
+      name = "banir",
       permission = "ancientbans.commands.ban"
     )
     public void onBan(
@@ -55,7 +59,7 @@ public class Commands {
         ));
     }
     @Command(
-        name = "mute",
+        name = "mutar",
       permission = "ancientbans.commands.ban.reason"
     )
     public void onMute(
@@ -90,8 +94,33 @@ public class Commands {
     public void onPunish(
       Context<CommandSender> context
     ) {
-        context.sendMessage("§eTodos tipos de punições habilitadas; ");
-        TextComponent textComponent = new TextComponent("§e");
+        Player player = (Player) context.getSender();
+        TextComponent div = new TextComponent("§fDivulgação Impropria");
+        TextComponent hack = new TextComponent("§fUso de Cliente Alternativo");
+        TextComponent bug = new TextComponent("§fAbuso de Bugs");
+        TextComponent mute = new TextComponent("§fSilenciamento Permanente");
+        TextComponent flood = new TextComponent("§fFlood");
+        TextComponent spam = new TextComponent("§fSpam");
 
+        hack.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fTipo: Banimento \nDuração: Permanente \nCargo:§2 Moderador ").create()));
+        bug.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fTipo: Banimento \nDuração: Permanente \nCargo:§2 Moderador ").create()));
+        mute.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fTipo: Silenciamento \nDuração: 6H \nCargo:§e Ajudante ").create()));
+        flood.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fTipo: Silenciamento \nDuração: 6H \nCargo:§f Ajudante ").create()));
+        spam.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fTipo: Silenciamento \nDuração: 6H \nCargo:§f Ajudante ").create()));
+        div.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fTipo: Silenciamento \nDuração: 6H \nCargo:§e Ajudante ").create()));
+
+        hack.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/banir usuario Divulgação" ));
+        bug.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/banir usuario Hack" ));
+        // TODO Mute Events
+
+        context.sendMessage("§eTodos tipos de punições habilitadas; ");
+
+        player.spigot().sendMessage(div);
+        player.spigot().sendMessage(hack);
+        player.spigot().sendMessage(bug);
+        player.spigot().sendMessage(mute);
+        player.spigot().sendMessage(flood);
+        player.spigot().sendMessage(spam);
+        
     }
 }
