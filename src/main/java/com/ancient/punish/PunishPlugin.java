@@ -30,7 +30,6 @@ import com.ancient.punish.registry.PunishRegistry;
 import com.ancient.punish.registry.ReasonRegistry;
 import com.ancient.punish.service.PunishService;
 import me.saiintbrisson.bukkit.command.BukkitFrame;
-import me.saiintbrisson.minecraft.ViewFrame;
 import me.saiintbrisson.minecraft.command.message.MessageHolder;
 import me.saiintbrisson.minecraft.command.message.MessageType;
 import org.bukkit.Bukkit;
