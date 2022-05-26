@@ -16,6 +16,7 @@ import lombok.AllArgsConstructor;
 import me.saiintbrisson.minecraft.command.annotation.Command;
 import me.saiintbrisson.minecraft.command.annotation.Optional;
 import me.saiintbrisson.minecraft.command.command.Context;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.CommandSender;
 
 @AllArgsConstructor
@@ -72,14 +73,25 @@ public class Commands {
         final String proof = proofReference == null ? "Sem link" : proofReference;
 
         punishService.punishMute(
-          context.getSender().getName(),
-          victimName,
-          evidence,
-          proof
+                context.getSender().getName(),
+                victimName,
+                evidence,
+                proof
         );
 
         context.sendMessage(String.format(
-          "§a%s foi mutado permanentemente.", victimName
+                "§a%s foi mutado permanentemente.", victimName
         ));
+    }
+    @Command(
+        name = "punir",
+      permission = "ancientbans.commands.punir"
+    )
+    public void onPunish(
+      Context<CommandSender> context
+    ) {
+        context.sendMessage("§eTodos tipos de punições habilitadas; ");
+        TextComponent textComponent = new TextComponent("§e");
+
     }
 }
