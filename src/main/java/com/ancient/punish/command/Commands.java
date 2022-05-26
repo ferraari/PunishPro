@@ -10,8 +10,6 @@
 
 package com.ancient.punish.command;
 
-import com.ancient.punish.registry.PunishRegistry;
-import com.ancient.punish.registry.ReasonRegistry;
 import com.ancient.punish.service.PunishService;
 import lombok.AllArgsConstructor;
 import me.saiintbrisson.minecraft.command.annotation.Command;
@@ -22,11 +20,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.sql.Time;
-import java.time.Instant;
-import java.util.Date;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 
 @AllArgsConstructor
 public class Commands {
@@ -120,8 +114,8 @@ public class Commands {
         spam.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fTipo: Silenciamento \nDuração: 6H \nCargo:§f Ajudante ").create()));
         div.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fTipo: Silenciamento \nDuração: 6H \nCargo:§e Ajudante ").create()));
 
-        hack.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/banir usuario Divulgação"));
-        bug.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/banir usuario Hack"));
+        hack.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/banir usuario Divulgação"));
+        bug.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/banir usuario Hack"));
         // TODO Mute ClickEvents
 
         context.sendMessage("§eTipos de punições disponíveis:");
