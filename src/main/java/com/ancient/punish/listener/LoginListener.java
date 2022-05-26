@@ -24,8 +24,6 @@ package com.ancient.punish.listener;
 import com.ancient.punish.model.*;
 import com.ancient.punish.registry.PunishRegistry;
 import lombok.AllArgsConstructor;
-import org.bukkit.BanList;
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
